@@ -51,6 +51,6 @@ with open('AmazonWebScraperDataset.csv', 'w', newline='', encoding='UTF8') as f:
 # repeating the process each day
 while(True):
     check_price()
-    time.sleep(2) #checking the price everyday
+    time.sleep(86400) #checking the price everyday
 
 
