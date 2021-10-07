@@ -53,4 +53,20 @@ while(True):
     check_price()
     time.sleep(86400) #checking the price everyday
 
-
+# sending email function
+def send_mail():
+    server = smtplib.SMTP_SSL('smtp.gmail.com',465)
+    server.ehlo()
+    #server.starttls()
+    server.ehlo()
+    server.login('myemail@gmail.com','xxxxxxxxxxxxxx')
+    
+    subject = "The Shirt you want is below $15! Now is your chance to buy!"
+    body = "Maria, This is the moment we have been waiting for. Now is your chance to pick up the shirt of your dreams. Don't mess it up! Link here: https://www.amazon.com/Currently-Unsupervised-Novelty-Graphic-Sarcasm/dp/B01HFFYP8A/ref=sr_1_15?dchild=1&keywords=data%2Btshirt&qid=1633430723&sr=8-15&th=1&psc=1"
+   
+    msg = f"Subject: {subject}\n\n{body}"
+    
+    server.sendmail(
+        'myemail@gmail.com',
+        msg
+    )
